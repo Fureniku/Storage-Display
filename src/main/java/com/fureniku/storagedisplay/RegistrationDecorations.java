@@ -9,12 +9,10 @@ import com.fureniku.metropolis.blockentity.MetroBlockEntity;
 import com.fureniku.metropolis.blocks.decorative.MetroBlockDecorativeBase;
 import com.fureniku.metropolis.blocks.decorative.builders.MetroBlockDecorativeBuilder;
 import com.fureniku.metropolis.blocks.decorative.helpers.HelperBase;
-import com.fureniku.metropolis.blocks.decorative.helpers.OffsetHelper;
 import com.fureniku.metropolis.blocks.decorative.helpers.RotationHelper;
 import com.fureniku.metropolis.datagen.MetroBlockStateProvider;
 import com.fureniku.metropolis.utils.CreativeTabSet;
 import com.fureniku.metropolis.utils.ShapeUtils;
-import com.fureniku.metropolis.utils.SimpleUtils;
 import com.mojang.datafixers.types.Type;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -149,7 +147,7 @@ public class RegistrationDecorations extends RegistrationBase {
     private static MetroBlockDecorativeBase.MetroBlockStateFactory getBlockFactory(BlockType type, HelperBase... helpersIn) {
         switch (type) {
             case BOOKSHELF:
-                return (props, shape, modelDir, modelName, tag, dynamicShape, textures) -> new BookshelfEntityBlock(props, shape, modelDir, modelName, tag, SimpleUtils.containsType(OffsetHelper.class, helpersIn), textures) {
+                return (props, shape, modelDir, modelName, tag, dynamicShape, textures) -> new BookshelfEntityBlock(props, shape, modelDir, modelName, textures) {
                     @Override
                     public ArrayList<HelperBase> getHelpers() {
                         return new ArrayList<>(Arrays.asList(helpersIn));

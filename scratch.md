@@ -19,6 +19,7 @@ Styles:
 - Half Shelf - 2x1 (Upper/Mid/Lower)
 - Weapon rack - 4x1
 - Pegboard - 2x2 - maybe work like chests on a larger scale? 
+- Jukebox - Only holds records (16). Can select and play from any. Maybe playlists? 
 - Fillables:
 	- Holds multiple stacks of one type of item
 	- Right click with the item to store, right click with empty to withdraw
@@ -40,9 +41,13 @@ Special items:
 - Bookcase - shows 4 books and splits a shelf space into 4 for them
 	- Without this, a book is placed on a stand and displayed front on
 	- Supports special books
+	- Can go in shelf, half and open shelf
 - Record Case - similar to bookcase, for records
 	- 8 per case? or is that too precise?
+	- Can go in a half shelf
+	- Automatically included in jukebox
 - Special books - can be named and disguised
+	- Can go in anything a Bookcase goes into, including a Bookcase itself
 	- Redstone book - when right-clicked, functions as a button
 	- Hollowed book - Can place one unstacked item inside (no blocks)
 

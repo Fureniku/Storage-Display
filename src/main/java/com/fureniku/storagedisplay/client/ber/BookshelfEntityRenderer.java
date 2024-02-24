@@ -1,26 +1,37 @@
 package com.fureniku.storagedisplay.client.ber;
 
+import com.fureniku.metropolis.utils.Debug;
+import com.fureniku.storagedisplay.StorageDisplay;
 import com.fureniku.storagedisplay.blocks.entities.BookshelfBlockEntity;
 import com.fureniku.metropolis.blocks.decorative.helpers.RotationHelper;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.client.model.data.ModelData;
+import net.minecraftforge.client.model.renderable.BakedModelRenderable;
+import net.minecraftforge.client.model.renderable.IRenderable;
 import org.joml.Quaternionf;
 
 public class BookshelfEntityRenderer implements BlockEntityRenderer<BookshelfBlockEntity> {
 
+    public static final ResourceLocation BOOK_1 = new ResourceLocation(StorageDisplay.MODID, "itemmodel/book_1");
+
     ItemRenderer itemRenderer = Minecraft.getInstance().getItemRenderer();
+
+    private static IRenderable<ModelData> _book1Renderable;
 
     public BookshelfEntityRenderer(BlockEntityRendererProvider.Context context) {
 
@@ -28,6 +39,14 @@ public class BookshelfEntityRenderer implements BlockEntityRenderer<BookshelfBlo
 
     @Override
     public void render(BookshelfBlockEntity entity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int light, int p_112312_) {
+        if (_book1Renderable == null)
+        {
+            _book1Renderable = BakedModelRenderable.of(BOOK_1).withModelDataContext();
+            Debug.Log("Registering book_1 model ??");
+        }
+
+        _book1Renderable.render(poseStack, bufferSource, RenderType::entitySolid, light, OverlayTexture.NO_OVERLAY, partialTick, ModelData.EMPTY);
+
         BlockState state = entity.getBlockState();
         Level level = entity.getLevel();
 
