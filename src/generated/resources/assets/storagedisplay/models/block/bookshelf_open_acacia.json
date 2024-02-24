@@ -1,0 +1,6 @@
+{
+  "parent": "storagedisplay:blocks/bookshelf_half_open",
+  "textures": {
+    "texture": "minecraft:block/acacia_planks"
+  }
+}

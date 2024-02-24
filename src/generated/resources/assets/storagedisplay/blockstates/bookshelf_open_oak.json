@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "storagedisplay:block/bookshelf_open_oak",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "storagedisplay:block/bookshelf_open_oak"
+    },
+    "facing=south": {
+      "model": "storagedisplay:block/bookshelf_open_oak",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "storagedisplay:block/bookshelf_open_oak",
+      "y": 270
+    }
+  }
+}

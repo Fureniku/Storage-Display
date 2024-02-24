@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "storagedisplay:block/bookshelf_jungle",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "storagedisplay:block/bookshelf_jungle"
+    },
+    "facing=south": {
+      "model": "storagedisplay:block/bookshelf_jungle",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "storagedisplay:block/bookshelf_jungle",
+      "y": 270
+    }
+  }
+}

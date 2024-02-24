@@ -1,0 +1,6 @@
+{
+  "parent": "storagedisplay:blocks/bookshelf_half",
+  "textures": {
+    "texture": "minecraft:block/dark_oak_planks"
+  }
+}
