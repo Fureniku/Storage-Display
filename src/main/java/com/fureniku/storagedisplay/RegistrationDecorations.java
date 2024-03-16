@@ -1,5 +1,6 @@
 package com.fureniku.storagedisplay;
 
+import com.fureniku.metropolis.utils.Debug;
 import com.fureniku.storagedisplay.blocks.BlockType;
 import com.fureniku.storagedisplay.blocks.BookshelfEntityBlock;
 import com.fureniku.storagedisplay.blocks.entities.BookshelfBlockEntity;
@@ -25,6 +26,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -67,6 +69,7 @@ public class RegistrationDecorations extends RegistrationBase {
     @Override
     public void init(IEventBus iEventBus) {
         iEventBus.addListener(this::registerRenderers);
+        iEventBus.addListener(this::registerModels);
         HelperBase[] helpers = { new RotationHelper(Block.box(0, 0, 0, 16, 16, 8)) };
 
         HashMap<String, Supplier<Block>> bookshelves = new HashMap<>(); //this is disgusting and I *love* it.
@@ -85,6 +88,12 @@ public class RegistrationDecorations extends RegistrationBase {
     @SubscribeEvent
     public void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer((BlockEntityType) BookshelfEntityBlock.ENTITY.get(), BookshelfEntityRenderer::new);
+    }
+
+    @SubscribeEvent
+    public void registerModels(ModelEvent.RegisterAdditional event) {
+        Debug.Log("Registering additional models");
+        event.register(new ResourceLocation(StorageDisplay.MODID, "itemmodel/book_1"));
     }
 
     @Override
